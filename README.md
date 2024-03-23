@@ -1,7 +1,6 @@
 # c++ 多线程编程
 
-'''
-
+```
 //创建线程
 
 std::thread t(functionname,args...)
@@ -9,7 +8,7 @@ std::thread t(functionname,args...)
 t.join()  主程序等待线程结束
 
 t.joinable() 是否可以调用join() 函数
-'''
+```
 
 
 ### 线程函数中的数据未定义错误
@@ -37,12 +36,11 @@ std::lock_guard:
 当构造函数被调用时，互斥量会被自动锁定
 析构函数调用自动解锁
 lock guard 不能复制或者移动，只能在作用域中出现
-'''
+```
     std::lock_guard<std::mutex> lg(mtx);
+```
 
-'''
-
-std::unique guard:
+std::unique lock:
 对互斥量更加灵活管理，包括延迟加锁、条件变量、超时等。
  
 
@@ -51,7 +49,6 @@ std::unique guard:
 饿汉模式：用到的时候才构造
 懒汉模式：直接构造好
 std::once_flag
-
 std::call_once(once,function_name)
 
 
@@ -73,7 +70,7 @@ std::condition_variable:
 ## c++实现跨平台线程池
 维护一个线程数组和任务队列，让线程完成队列里的任务
 完美转发：
-'''
+```
 template<typename T>
 void perfect_forward(T&& arg) {
     another_function(std::forward<T>(arg));
@@ -96,4 +93,5 @@ int main() {
 
     return 0;
 }
-'''
+```
+
